@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Michroma&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"HAGAG ONE","telephone":"+201018441144","sameAs":["https://www.facebook.com/share/1FXvM1ipP1/","https://www.instagram.com/hagagone"]}</script>
-<link rel="stylesheet" href="style.css?v=search-sweep-1">
+<link rel="stylesheet" href="style.css?v=admin-search-controls-2">
 </head>
 <body>
 <!--<div class="strip" data-t="strip"></div>-->
@@ -24,18 +24,16 @@
    <img class="dream-logo-light" src="HAGAG_ONE_Official_Header_Transparent.webp" alt="HAGAG ONE">
    <img class="dream-logo-dark" src="HAGAG_ONE_Header_Dark.png" alt="" aria-hidden="true">
   </a>
-  <div class="dream-settings">
-   <button class="dream-icon theme-switch" id="themeBtn" aria-label="Theme">◐</button>
-   <button class="dream-icon flag-button" id="langBtn" aria-label="Language">🇺🇸</button>
-   <button class="admin-nav" id="adminBtn" type="button" aria-label="الأدمن">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 4.5-2.9 7.8-7 10-4.1-2.2-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
-    <span data-t="admin">الأدمن</span>
-   </button>
-  </div>
   <div class="dream-actions">
+    <div class="dream-settings" role="group" aria-label="إعدادات الموقع">
+    <button class="dream-icon theme-switch" id="themeBtn" aria-label="Theme">◐</button>
+    <button class="dream-icon flag-button" id="langBtn" aria-label="Language">🇺🇸</button>
+   </div>
+   <div class="dream-user-actions" id="userActions" role="group" aria-label="Account and shopping actions">
    <button class="dream-icon" id="accountBtn" type="button" aria-label="تسجيل الدخول" title="تسجيل الدخول"><svg viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button>
    <button class="dream-icon" id="wishlistBtn" type="button" aria-label="Wishlist" title="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.2-8.8 11-8.8 11s-8.8-5.8-8.8-11A4.8 4.8 0 0 1 12 6.1a4.8 4.8 0 0 1 8.8 2.7Z"/></svg></button>
    <button class="dream-icon cart-button" id="cartBtn" type="button" aria-label="Cart" title="Cart"><svg viewBox="0 0 24 24"><path d="M3 3h2l2.2 12.2a2 2 0 0 0 2 1.7h8.9a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg><span class="cart-count" id="cartCount" hidden>0</span></button>
+   </div>
   </div>
   <div class="dream-search-frame">
    <div class="dream-search search">
@@ -44,7 +42,11 @@
    </div>
   </div>
  </div>
- <nav class="dream-categories" aria-label="Product categories">
+ 
+</header>
+
+<main>
+  <nav class="dream-categories" aria-label="Product categories">
   <a href="#products" class="deal-link" data-t="deals">عروضنا</a>
   <a href="#products" data-category="phone">📱 <span data-cat-label="phone">موبايل</span></a>
   <a href="#products" data-category="laptop">▣ <span data-cat-label="laptop">لابتوب وكمبيوتر</span></a>
@@ -56,9 +58,6 @@
   <a href="#new" data-t="nNew">الجديد</a>
   <a href="#contact" data-t="nContact">تواصل معنا</a>
  </nav>
-</header>
-
-<main>
 
 <section class="shop-hero"><div class="wrap">
  <div class="hero-panel reveal">
@@ -250,6 +249,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
-<script src="script.js?v=showcase-admin-1"></script>
+<script src="script.js?v=admin-search-controls-2"></script>
 </body>
 </html>

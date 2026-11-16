@@ -445,7 +445,7 @@ function mlist(){
 function applyLang(){
  var h=document.documentElement;h.lang=lang;h.dir=lang==='ar'?'rtl':'ltr';
  $('#langBtn').textContent=lang==='ar'?'EN':'عربي';
- $('#adminBtn').setAttribute('aria-label',lang==='ar'?'الأدمن':'Admin');
+ $('#userActions').setAttribute('aria-label',lang==='ar'?'أدوات الحساب والتسوق':'Account and shopping actions');
  $('#heroPrev').textContent=lang==='ar'?'→':'←';
  $('#heroNext').textContent=lang==='ar'?'←':'→';
  $('#heroPrev').setAttribute('aria-label',lang==='ar'?'الصورة السابقة':'Previous slide');
@@ -474,8 +474,18 @@ $('#wishlistBtn').onclick=function(){toast(lang==='ar'?'قائمة المفضل�
 $('#accountBtn').onclick=openUserM;
 $$('.dream-categories [data-category]').forEach(function(a){a.addEventListener('click',function(){var c=a.dataset.category;if(c==='desk')c='';$('#cf').value=c;grid()})});
 
-$('#q').oninput=grid;$('#cf').onchange=grid;$('#sortProducts').onchange=grid;$('#inStockOnly').onchange=grid;
-$('#q').onkeydown=function(e){if(e.key==='Enter')document.getElementById('products').scrollIntoView()};
+function openAdminFromSearch(){
+ $('#q').value='';
+ if(location.hash==='#admin')openM();else location.hash='admin';
+ window.setTimeout(function(){if(!admin)$('#adminEmail').focus()},0);
+}
+$('#q').oninput=function(){if(this.value.trim().toLowerCase()==='#admin'){openAdminFromSearch();return}grid()};
+$('#cf').onchange=grid;$('#sortProducts').onchange=grid;$('#inStockOnly').onchange=grid;
+$('#q').onkeydown=function(e){
+ if(e.key!=='Enter')return;
+ if(this.value.trim().toLowerCase()==='#admin'){e.preventDefault();openAdminFromSearch();return}
+ document.getElementById('products').scrollIntoView();
+};
 $('#tabs').onclick=function(e){var b=e.target.closest('.tab');if(!b)return;tab=b.dataset.tab;render()};
 $('#fCats').onclick=function(e){var a=e.target.closest('[data-fc]');if(a){$('#cf').value=a.dataset.fc;grid()}};
 $$('[data-sl]').forEach(function(b){b.onclick=function(){var tr=document.getElementById(b.dataset.sl);var dir=document.documentElement.dir==='rtl'?-1:1;tr.scrollBy({left:Number(b.dataset.d)*dir*Math.max(240,tr.clientWidth*.8),behavior:'smooth'})}});
@@ -504,7 +514,6 @@ function openM(){
  if(admin)loadShowcaseItems();
 }
 function closeM(){modalView='';$('#modal').classList.remove('open','user-auth-mode')}
-$('#adminBtn').onclick=openM;
 $('#showcaseType').onchange=function(){
  var imageMode=this.value==='image';
  $('#showcaseImageField').hidden=!imageMode;
